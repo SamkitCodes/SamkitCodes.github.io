@@ -19,8 +19,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   <main id="top">
     <div class="hero">
       <h1>I build ML systems and find out why they break.</h1>
-      <p class="lede">Dalhousie Computer Science (Honours) graduate in Halifax. I have researched autonomous cyber defence and intrusion detection, and I build backends and cloud apps. I'm looking for software, ML and security roles.</p>
+      <p class="lede">Dalhousie Computer Science (Honours) graduate in Halifax. I've worked on reinforcement learning for cyber defence, intrusion detection and computer vision, and I build backends and cloud apps on AWS. I'm looking for software, ML and security roles anywhere in Canada.</p>
       <div class="actions">
+        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
         <a href="https://github.com/SamkitCodes" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/samkit-jain" rel="noopener">LinkedIn</a>
       </div>
@@ -51,10 +52,11 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         </div>
       </article>
       <article class="case">
-        <p class="label">NSERC USRA<br>MAY&ndash;AUG 2025</p>
+        <p class="label">NSERC USRA<br>MAY&ndash;AUG 2025<br>FOLLOW-UP 2026</p>
         <div>
-          <h3>Why intrusion detection models fail on new networks</h3>
-          <p>With a competitive NSERC Undergraduate Student Research Award, I replicated a published study of why ML intrusion-detection models trained on one network dataset fail on other networks.</p>
+          <h3>Do ML intrusion detectors work on networks they weren't trained on?</h3>
+          <p>With an NSERC Undergraduate Student Research Award, I replicated Cantone et al. (IEEE Access, 2024). In 2026 I rebuilt it independently on four datasets with over 34 million network flows, matching 77 of the paper's top 78 selected features.</p>
+          <p>The result: validating on the same dataset can't pick a model that transfers. Near-identical models scored anywhere from 0.03 to 0.48 MCC on another network, and duplicated flows, 23–27% of the 2018 data, inflated one model's score from 0.15 to 0.34.</p>
           <p class="tags">Supervised by Dr. Nur Zincir-Heywood and Dr. Adetokunbo Makanju</p>
         </div>
       </article>
@@ -81,7 +83,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         <p class="label">2022&ndash;2026</p>
         <div>
           <h3>Bachelor of Computer Science (Honours), Dalhousie University</h3>
-          <p>Dean's List and Sexton Scholar. I also marked CSCI 3171 (Network Computing) in fall 2024.</p>
+          <p>GPA 3.77/4.30. Dean's List and Sexton Scholar. I also marked CSCI 3171 (Network Computing) in fall 2024.</p>
         </div>
       </article>
       <article class="case">
@@ -92,11 +94,12 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         </div>
       </article>
       <dl class="skills" style="margin:28px 0 0">
-        <div><dt class="label">ML &amp; DATA</dt><dd>PyTorch, TensorFlow, scikit-learn, Pandas, NumPy</dd></div>
-        <div><dt class="label">BACKEND &amp; WEB</dt><dd>Node.js, Express, React, REST APIs, JWT</dd></div>
-        <div><dt class="label">LANGUAGES</dt><dd>Python, Java, C/C++, JavaScript, TypeScript</dd></div>
-        <div><dt class="label">CLOUD &amp; DATA STORES</dt><dd>AWS, Docker, Kubernetes, PostgreSQL, MongoDB, DynamoDB</dd></div>
-        <div><dt class="label">CERTIFICATION</dt><dd>AWS Certified Cloud Practitioner</dd></div>
+        <div><dt class="label">LANGUAGES</dt><dd>C++, C, Python, Java, JavaScript/TypeScript, SQL, Kotlin, R, PHP</dd></div>
+        <div><dt class="label">MACHINE LEARNING</dt><dd>PyTorch, TensorFlow, scikit-learn, YOLO (Ultralytics), OpenCV, Pandas, NumPy, Matplotlib</dd></div>
+        <div><dt class="label">BACKEND &amp; WEB</dt><dd>Node.js, Express, React, REST APIs, JWT, HTML, CSS</dd></div>
+        <div><dt class="label">CLOUD &amp; DEVOPS</dt><dd>AWS (EC2, Lambda, S3, DynamoDB, CloudFormation, VPC, Cognito, CloudFront, Rekognition), Docker, Git, Linux, Bash</dd></div>
+        <div><dt class="label">DATABASES</dt><dd>PostgreSQL, MySQL, MongoDB, Firebase</dd></div>
+        <div><dt class="label">CERTIFICATIONS</dt><dd>AWS Certified Cloud Practitioner</dd></div>
       </dl>
     </section>
 

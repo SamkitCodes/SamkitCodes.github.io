@@ -1,7 +1,7 @@
 ---
-title: Celebrity Face Detector
+title: "Celebrity Face Detector"
 order: 2
-summary: "A three-tier AWS application defined in CloudFormation. It uses Rekognition to match celebrity faces in uploaded images."
-stack: ["AWS", "EC2", "Lambda", "S3", "DynamoDB", "VPC", "React", "Node.js", "Python"]
-# link: https://github.com/SamkitCodes/your-repo
+summary: "Upload a photo and get the celebrities in it, named and boxed. A three-tier AWS app in 7 CloudFormation stacks: React on CloudFront and S3, an Express API on EC2 in a private subnet, and an event-driven Python Lambda that calls Rekognition. Secured with Cognito, least-privilege IAM and per-user quotas, with CI running cfn-lint, checkov, gitleaks and tests."
+stack: ["CloudFormation", "Rekognition", "Lambda", "EC2", "React", "Node.js", "Python"]
+link: https://github.com/SamkitCodes/celebrity-face-detector
 ---
