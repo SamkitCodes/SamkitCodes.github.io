@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base>
+<div class="wrap">
+  <header class="top">
+    <a class="name" href="#top">Samkit Jain</a>
+    <nav aria-label="Sections"><ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <h1>I build ML systems and find out why they break.</h1>
+      <p class="lede">Dalhousie Computer Science (Honours) graduate in Halifax. I have researched autonomous cyber defence and intrusion detection, and I build backends and cloud apps. I'm looking for software, ML and security roles.</p>
+      <div class="actions">
+        <a href="https://github.com/SamkitCodes" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/samkit-jain" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <figure class="field">
+      <canvas id="queries" role="img" aria-label="3,000 dots, one per LLM query: 1,582 Remove Defender, 1,029 Analyse Op Server0, 122 Remove Op Server0, and 267 invalid or missing."></canvas>
+      <figcaption>
+        <p class="field-head">3,000 questions to an LLM teacher. Every valid answer fell into three recommendations.</p>
+        <ul class="legend">
+          <li><i style="background:var(--c1)"></i><b>1,582</b> Remove, Defender</li>
+          <li><i style="background:var(--c2)"></i><b>1,029</b> Analyse, Op Server0</li>
+          <li><i style="background:var(--c3)"></i><b>122</b> Remove, Op Server0</li>
+          <li><i style="background:var(--dot)"></i><b>267</b> Invalid or missing</li>
+        </ul>
+      </figcaption>
+    </figure>
+
+    <section id="research">
+      <h2>Research</h2>
+      <article class="case">
+        <p class="label">HONOURS THESIS<br>JAN&ndash;APR 2026</p>
+        <div>
+          <h3>Hybrid reinforcement learning for autonomous cyber defence</h3>
+          <p>I built an end-to-end system in PyTorch for CybORG Cage Challenge 2. A frozen cybersecurity LLM (Cyber-Risk-Llama-3-8B) acts as a teacher to a PPO agent with an Intrinsic Curiosity Module, through action masking and an auxiliary teacher-alignment loss.</p>
+          <p>The hybrid did not beat the PPO-ICM baseline. Its teacher repeated a few recommendations instead of responding to the network state, which biased early training and helps explain the instability. This was a 300-episode run limited by compute, so it is a study of what went wrong, not a final verdict on the method.</p>
+          <p class="tags">Supervised by Dr. Srinivas Sampalli, Dr. Jaume Manero and Dr. Darshana Upadhyay</p>
+        </div>
+      </article>
+      <article class="case">
+        <p class="label">NSERC USRA<br>MAY&ndash;AUG 2025</p>
+        <div>
+          <h3>Why intrusion detection models fail on new networks</h3>
+          <p>With a competitive NSERC Undergraduate Student Research Award, I replicated a published study of why ML intrusion-detection models trained on one network dataset fail on other networks.</p>
+          <p class="tags">Supervised by Dr. Nur Zincir-Heywood and Dr. Adetokunbo Makanju</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="projects">
+        {projects.map(({ data }) => (
+          <li>
+            <h3>{data.title}</h3>
+            <p>{data.summary}</p>
+            <p class="tags">{data.stack.join(' · ')}</p>
+            {data.link && <a href={data.link} rel="noopener">View project</a>}
+          </li>
+        ))}
+      </ul>
+      <p class="note">I also keep up algorithm practice in C++ in <a href="https://github.com/SamkitCodes/algogym" rel="noopener">AlgoGym</a>.</p>
+    </section>
+
+    <section id="background">
+      <h2>Background</h2>
+      <article class="case">
+        <p class="label">2022&ndash;2026</p>
+        <div>
+          <h3>Bachelor of Computer Science (Honours), Dalhousie University</h3>
+          <p>Dean's List and Sexton Scholar. I also marked CSCI 3171 (Network Computing) in fall 2024.</p>
+        </div>
+      </article>
+      <article class="case">
+        <p class="label">BEFORE CS</p>
+        <div>
+          <h3>National-level tennis</h3>
+          <p>Ranked among the top 200 players in the All India Tennis Association rankings.</p>
+        </div>
+      </article>
+      <dl class="skills" style="margin:28px 0 0">
+        <div><dt class="label">ML &amp; DATA</dt><dd>PyTorch, TensorFlow, scikit-learn, Pandas, NumPy</dd></div>
+        <div><dt class="label">BACKEND &amp; WEB</dt><dd>Node.js, Express, React, REST APIs, JWT</dd></div>
+        <div><dt class="label">LANGUAGES</dt><dd>Python, Java, C/C++, JavaScript, TypeScript</dd></div>
+        <div><dt class="label">CLOUD &amp; DATA STORES</dt><dd>AWS, Docker, Kubernetes, PostgreSQL, MongoDB, DynamoDB</dd></div>
+        <div><dt class="label">CERTIFICATION</dt><dd>AWS Certified Cloud Practitioner</dd></div>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>I'm based in Halifax, Nova Scotia, open to roles anywhere in Canada, and authorized to work in Canada with no sponsorship required.</p>
+      <div class="contact-row">
+        <span class="email" id="email">samkitj00@gmail.com</span>
+        <button class="copy" id="copy" type="button">Copy email</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Samkit Jain, Halifax</footer>
+</div>
+
+  <script src="../scripts/home.js"></script>
+</Base>

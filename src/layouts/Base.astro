@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+const url = 'https://samkitcodes.github.io/';
+const description = 'Samkit Jain is a Dalhousie Computer Science (Honours) graduate in Halifax working across software engineering, machine learning and security.';
+const person = {
+  '@context': 'https://schema.org', '@type': 'Person', name: 'Samkit Jain', url,
+  alumniOf: 'Dalhousie University',
+  address: { '@type': 'PostalAddress', addressLocality: 'Halifax', addressRegion: 'NS', addressCountry: 'CA' },
+  sameAs: ['https://github.com/SamkitCodes', 'https://www.linkedin.com/in/samkit-jain'],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Samkit Jain</title>
+    <meta name="description" content={description}>
+    <link rel="canonical" href={url}>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Samkit Jain">
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={url}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(person)}></script>
+  </head>
+  <body><slot /></body>
+</html>
